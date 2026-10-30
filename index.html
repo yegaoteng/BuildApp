@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
+  <title>应用构建工具</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header class="topbar">
+    <button id="backBtn" class="back-btn hidden" title="返回">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+    <div class="topbar-title">应用构建工具</div>
+    <div class="topbar-spacer"></div>
+  </header>
+
+  <!-- 主界面 -->
+  <section id="homeView" class="view active">
+    <div class="home-card">
+      <h1 class="home-title">应用构建工具</h1>
+      <p class="home-subtitle">选择工作目录 · 部署 Gradle 环境 · 构建应用</p>
+
+      <div class="status-row">
+        <span class="status-label">工作目录：</span>
+        <span id="dirStatus" class="status-value status-muted">未选择</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Gradle 环境：</span>
+        <span id="gradleStatus" class="status-value status-muted">检测中...</span>
+      </div>
+
+      <div class="btn-group">
+        <button id="selectDirBtn" class="action-btn primary">
+          <span class="btn-icon">📁</span>
+          <span class="btn-text">选择工作目录</span>
+        </button>
+        <button id="deployBtn" class="action-btn">
+          <span class="btn-icon">⚙️</span>
+          <span class="btn-text">部署环境</span>
+        </button>
+        <button id="buildBtn" class="action-btn accent">
+          <span class="btn-icon">🚀</span>
+          <span class="btn-text">构建应用</span>
+        </button>
+      </div>
+
+      <details class="custom-cmd-box">
+        <summary>自定义构建命令（可选）</summary>
+        <input type="text" id="customCmd" placeholder="例如：./gradlew assembleDebug --no-daemon" />
+        <p class="hint">留空则使用默认命令（gradlew build 或 gradle build）</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 终端界面 -->
+  <section id="terminalView" class="view">
+    <div class="terminal-header">
+      <span id="terminalTitle" class="terminal-title">终端</span>
+      <button id="returnHomeBtn" class="return-btn hidden">返回主界面</button>
+    </div>
+    <div id="terminal" class="terminal-container"></div>
+  </section>
+
+  <!-- 通用弹窗 -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div id="modalIcon" class="modal-icon">⚠️</div>
+      <h3 id="modalTitle" class="modal-title">提示</h3>
+      <p id="modalMessage" class="modal-message"></p>
+      <div class="modal-actions" id="modalActions">
+        <button id="modalCancel" class="modal-btn secondary">取消</button>
+        <button id="modalConfirm" class="modal-btn primary">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="node_modules/xterm/lib/xterm.js"></script>
+  <script src="node_modules/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
