@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:background="@color/bg_card">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            android:contentDescription="@string/back"
+            android:scaleType="centerInside"
+            app:tint="@color/text_primary"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+        <TextView
+            android:id="@+id/tvTerminalTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="终端"
+            android:textColor="@color/text_muted"
+            android:textSize="14sp"
+            android:fontFamily="monospace"
+            android:paddingStart="8dp" />
+
+        <Button
+            android:id="@+id/btnReturnHome"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:visibility="gone"
+            android:backgroundTint="@color/accent"
+            android:text="@string/return_home"
+            android:textColor="#0D0D18"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollTerminal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_terminal"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tvTerminal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textColor="#E4E4F0"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="2dp"
+            android:selectAllOnFocus="false"
+            android:textIsSelectable="true" />
+    </ScrollView>
+
+</LinearLayout>

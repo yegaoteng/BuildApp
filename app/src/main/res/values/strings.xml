@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">应用构建工具</string>
+    <string name="select_directory">选择工作目录</string>
+    <string name="deploy_environment">部署环境</string>
+    <string name="build_app">构建应用</string>
+    <string name="no_directory_selected">未选择工作目录</string>
+    <string name="back">返回</string>
+    <string name="return_home">返回主界面</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="stop_build_title">确认停止构建？</string>
+    <string name="stop_build_message">返回将强制停止当前构建过程，是否继续？</string>
+    <string name="install_success_title">环境部署完成</string>
+    <string name="install_success_message">Gradle 环境已成功安装！</string>
+    <string name="install_failed_title">环境部署失败</string>
+    <string name="custom_command_hint">自定义构建命令（可选，留空使用默认）</string>
+</resources>
