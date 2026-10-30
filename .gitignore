@@ -55,6 +55,9 @@ google-services.json
 # Version control
 vcs.xml
 
+# 自带环境包（体积大，不提交到仓库，仅用于构建 APK）
+app/src/main/assets/env/
+
 # OS
 .DS_Store
 Thumbs.db
